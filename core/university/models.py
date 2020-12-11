@@ -2,6 +2,10 @@ from django.db import models
 from django.urls import reverse
 
 
+def upload_img(instance, filename):
+    return 'university_img/{0}/{1}'.format(instance.university.title, filename)
+
+
 class University(models.Model):
     title = models.CharField(max_length=200)
     headnote = models.CharField(max_length=200)
@@ -41,6 +45,6 @@ class FAQ(models.Model):
 
 class Gallery(models.Model):
     university = models.ForeignKey('University', on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='university_img')
+    image = models.ImageField(upload_to=upload_img)
 
 
