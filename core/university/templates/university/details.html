@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -14,10 +15,92 @@
         </div>
         </div>
     </div>
+
     <div class="col-12 mb-4 shadow p-3 mb-5 bg-white rounded">
-        <h2>{{ university.title }}</h2>
-        {{ university.description }}
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="pills-ds-tab" data-toggle="pill" href="#pills-ds" role="tab"
+                   aria-controls="pills-ds" aria-selected="true">
+                    Description
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-dg-tab" data-toggle="pill" href="#pills-dg" role="tab"
+                   aria-controls="pills-dg" aria-selected="false">
+                    Degrees
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-fc-tab" data-toggle="pill" href="#pills-fc" role="tab"
+                   aria-controls="pills-fc" aria-selected="false">
+                    Faculties
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-ai-tab" data-toggle="pill" href="#pills-ai" role="tab"
+                   aria-controls="pills-ai" aria-selected="false">
+                    Finance aid
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-fq-tab" data-toggle="pill" href="#pills-fq" role="tab"
+                   aria-controls="pills-fq" aria-selected="false">
+                    FAQ
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-ds" role="tabpanel" aria-labelledby="pills-ds-tab">
+                <h2>{{ university.title }}</h2>
+                {{ university.description }}
+            </div>
+
+            <div class="tab-pane fade" id="pills-dg" role="tabpanel" aria-labelledby="pills-dg-tab">
+                <div class="accordion" id="accordion">
+                {% for degree in university.degrees.all %}
+                    <div class="card border-light">
+                        <div class="card-header border-secondary" id="hd{{ degree.id }}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                data-target="#cl{{ degree.id }}" aria-expanded="true" aria-controls="cl{{ degree.id }}">
+                                {{ degree.qualifications }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="cl{{ degree.id }}" class="collapse show"
+                             aria-labelledby="hd{{ degree.id }}" data-parent="#accordion">
+                            <div class="card-body">
+                            {{ degree.information }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-fc" role="tabpanel" aria-labelledby="pills-fc-tab">
+            {% for degree in university.degrees.all %}
+                {% for faculty in degree.faculties.all %}
+                    <strong>{{ faculty.degree.qualifications }}:</strong>
+                    <br>
+                    {{ faculty.title }}
+                {% endfor %}
+            {% endfor %}
+            </div>
+
+            <div class="tab-pane fade" id="pills-ai" role="tabpanel" aria-labelledby="pills-ai-tab">
+                <h2>{{ university.aid.first.title }}</h2>
+                {{ university.aid.first.description }}
+            </div>
+
+            <div class="tab-pane fade" id="pills-fq" role="tabpanel" aria-labelledby="pills-fq-tab">
+                <h2>{{ university.faq.first.title }}</h2>
+                {{ university.faq.first.description }}
+            </div>
+
     </div>
+
 </div>
 
 {% endblock %}
