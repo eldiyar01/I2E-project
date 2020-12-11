@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 mb-4 ">
+        <div class="col-12">
+        <div class="card bg-dark text-white  border-secondary shadow-lg">
+            <img src="{{ university.images.first.image.url }}" height="600px" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title">{{ university.title }}</h5>
+                <p class="card-text">{{ university.headnote }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 mb-4 shadow p-3 mb-5 bg-white rounded">
+        <h2>{{ university.title }}</h2>
+        {{ university.description }}
+    </div>
+</div>
+
+{% endblock %}
