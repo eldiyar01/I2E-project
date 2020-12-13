@@ -29,6 +29,8 @@ class Faculty(models.Model):
     description = models.TextField()
     duration = models.IntegerField(default=4)
     fee = models.IntegerField()
+    aid = models.BooleanField(default=True)
+    scholarship = models.BooleanField(default=False)
 
 
 class FinanceAid(models.Model):
@@ -46,5 +48,3 @@ class FAQ(models.Model):
 class Gallery(models.Model):
     university = models.ForeignKey('University', on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to=upload_img)
-
-
