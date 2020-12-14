@@ -9,7 +9,7 @@
         <div class="row p-3 mt-4 mb-5">
             {% if search_req %}
                 <div class="col-12 shadow p-3 mb-5">
-                    <h3> <strong>Results for:</strong> '{{ search_req }}'</h3>
+                    <h3 class="rect"><strong>Results for:</strong> '{{ search_req }}'</h3>
             {% elif search_req != None %}
                     <h3>Nothing founded for '{{ search_req }}'</h3>
                 </div>
@@ -31,11 +31,11 @@
         </div>
         {% if searcher_req %}
             <div class="col-12 shadow p-3 mb-5">
-            <h3><strong>Results for:</strong></h3>
+            <h3 class="rect"><strong>Results for:</strong></h3>
                 <hr>
                 <h5>
                 {% for x,y in searcher_req.items %}
-                    <strong>{{x.title}}:</strong>
+                    <span class="font-weight-bold rect">{{x.title}}:</span>
                     {% if y != '' %}
                         {{y}},
                     {% else %}
