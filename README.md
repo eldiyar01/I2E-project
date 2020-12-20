@@ -9,7 +9,8 @@ Web app for universities
 ![image](https://user-images.githubusercontent.com/75837324/102725677-b1833280-4342-11eb-9b56-655f1ed4705c.png)
 ![image](https://user-images.githubusercontent.com/75837324/102725712-f60ece00-4342-11eb-8c45-9d499bcff1eb.png)
 
-Team members: Abdyldaev Eldiiar, Akimbaeva Elira  
+**Team members:**   
+Abdyldaev Eldiiar, Akimbaeva Elira  
 
 **Installing:**  
 1)clone repository:   
