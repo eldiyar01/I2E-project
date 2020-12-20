@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block carousel %}
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
@@ -9,8 +12,8 @@
         <div class="card bg-dark text-white  border-secondary shadow-lg">
             <img src="{{ university.images.first.image.url }}" height="600px" class="card-img" alt="...">
             <div class="card-img-overlay">
-                <h5 class="card-title">{{ university.title }}</h5>
-                <p class="card-text">{{ university.headnote }}</p>
+                <h1 class="card-title isoct font-weight-bold">{{ university.title }}</h1>
+                <h4 class="card-text azote font-weight-bolder">{{ university.headnote }}</h4>
             </div>
         </div>
         </div>
@@ -50,25 +53,25 @@
             </li>
         </ul>
         <hr>
-        <div class="tab-content" id="pills-tabContent">
+        <div class="tab-content rect" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-ds" role="tabpanel" aria-labelledby="pills-ds-tab">
                 <h2>{{ university.title }}</h2>
-                {{ university.description }}
+                <p>{{ university.description }}</p>
             </div>
 
             <div class="tab-pane fade" id="pills-dg" role="tabpanel" aria-labelledby="pills-dg-tab">
                 <div class="accordion" id="accordion">
                 {% for degree in university.degrees.all %}
-                    <div class="card border-light">
-                        <div class="card-header border-secondary" id="hd{{ degree.id }}">
+                    <div class="card">
+                        <div class="card-header" id="hd{{ degree.id }}">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                <button class="btn btn-link btn-block text-left text-dark" type="button" data-toggle="collapse"
                                 data-target="#cl{{ degree.id }}" aria-expanded="true" aria-controls="cl{{ degree.id }}">
                                 {{ degree.qualifications }}
                                 </button>
                             </h2>
                         </div>
-                        <div id="cl{{ degree.id }}" class="collapse show"
+                        <div id="cl{{ degree.id }}" class="collapse"
                              aria-labelledby="hd{{ degree.id }}" data-parent="#accordion">
                             <div class="card-body">
                             {{ degree.information }}
@@ -83,6 +86,7 @@
             {% for degree in university.degrees.all %}
                 {% for faculty in degree.faculties.all %}
                     <strong>{{ faculty.degree.qualifications }}:</strong>
+                    <hr>
                     <br>
                     {{ faculty.title }}
                 {% endfor %}
@@ -98,7 +102,7 @@
                 <h2>{{ university.faq.first.title }}</h2>
                 {{ university.faq.first.description }}
             </div>
-
+        </div>
     </div>
 
 </div>
