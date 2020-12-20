@@ -26,9 +26,6 @@
       <li class="nav-item active">
         <a class="nav-link isoct font-weight-bolder" href="{% url 'university:home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link isoct font-weight-bolder" href="">News</a>
-      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 rect" action="{% url 'university:fast-search' %}">
       <input class="form-control mr-sm-2" type="search" placeholder="Fast search" aria-label="Search" name="search">
@@ -44,7 +41,7 @@
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner font-shadow">
     <div class="carousel-item active">
       <img src="{% static 'base/student2.jpg' %}" class="d-block w-100" alt="...">
       <div class="carousel-caption mb-30">
@@ -106,33 +103,24 @@
     </div>
     <div class="col-6 col-md">
       <h5 class="isoct font-weight-bolder">Features</h5>
-      <ul class="list-unstyled text-small rect">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for universities</a></li>
-      </ul>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="{% url 'university:features' %}">Cool stuff</a></li>
+          <li><a class="text-muted" href="{% url 'university:features' %}">Random feature</a></li>
+          <li><a class="text-muted" href="{% url 'university:features' %}">Team feature</a></li>
+          <li><a class="text-muted" href="{% url 'university:features' %}">Stuff for developers</a></li>
+        </ul>
     </div>
     <div class="col-6 col-md">
       <h5 class="isoct font-weight-bolder">Resources</h5>
-      <ul class="list-unstyled text-small rect">
-        <li><a class="text-muted" href="#">Useful resources</a></li>
-        <li><a class="text-muted" href="#">Our other projects</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5 class="isoct font-weight-bolder">Resources</h5>
-      <ul class="list-unstyled text-small rect">
-        <li><a class="text-muted" href="#">Business</a></li>
-        <li><a class="text-muted" href="#">Education</a></li>
-        <li><a class="text-muted" href="#">Government</a></li>
-      </ul>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="https://edu.gov.kg/ru/">Education</a></li>
+          <li> <a class="text-muted" href="http://www.onlinewebfonts.com">Online web fonts</a></li>
+        </ul>
     </div>
     <div class="col-6 col-md">
       <h5 class="isoct font-weight-bolder">About</h5>
       <ul class="list-unstyled text-small rect">
-        <li><a class="text-muted" href="#">Team</a></li>
-        <li><a class="text-muted" href="#">Ideas</a></li>
-        <li> <a class="text-muted" href="http://www.onlinewebfonts.com">Online web fonts</a></li>
+        <li><a class="text-muted" href="{% url 'university:team' %}">Team</a></li>
       </ul>
     </div>
   </div>

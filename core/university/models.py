@@ -35,7 +35,7 @@ class Faculty(models.Model):
 
 class FinanceAid(models.Model):
     university = models.ForeignKey('University', on_delete=models.CASCADE, related_name='aid')
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='Finance aid information')
     description = models.TextField()
 
 
@@ -43,6 +43,12 @@ class FAQ(models.Model):
     university = models.ForeignKey('University', on_delete=models.CASCADE, related_name='faq')
     title = models.CharField(max_length=100, default='Frequently asked Question')
     description = models.TextField()
+
+
+class Scholarship(models.Model):
+    university = models.ForeignKey('University', on_delete=models.CASCADE, related_name='scholarship')
+    title = models.CharField(max_length=100, default='Scholarship information')
+    description = models.TextField() 
 
 
 class Gallery(models.Model):

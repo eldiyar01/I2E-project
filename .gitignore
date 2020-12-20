@@ -1,0 +1,5 @@
+venv/
+.idea/
+core/core/__pycache__/
+core/university/migrations/__pycache__/
+core/university/__pycache__/

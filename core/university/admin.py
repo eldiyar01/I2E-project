@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import University, Degree, Faculty, FinanceAid, FAQ,  Gallery
+from .models import University, Degree, Faculty, FinanceAid, FAQ, Scholarship, Gallery
 
 
 @admin.register(University)
@@ -27,6 +27,11 @@ class FAQAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Scholarship)
+class ScholarshipAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     pass
+

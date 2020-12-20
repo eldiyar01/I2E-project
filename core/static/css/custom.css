@@ -33,6 +33,10 @@
     font-style: normal;
 }
 
+.font-shadow{
+	text-shadow:6px 6px 9px #000;
+}
+
 .mh-29{
     max-height:290px;
 }

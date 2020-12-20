@@ -44,10 +44,18 @@ def searcher_res(request):
     if aid is None:
         aid = False
     f_id = Faculty.objects.filter(title__icontains=faculty, language__icontains=language[:2],
-                                  fee__range=(0, fee), aid=aid, scholarship=scholarship).values_list('id', flat=True)
+                                  fee__range=(1, fee), aid=aid, scholarship=scholarship).values_list('id', flat=True)
     search_univ = f_id
     if search_req == '':
         return redirect('university:home')
     elif search_req:
         search_univ = Degree.objects.filter(qualifications__icontains=degree, faculties__in=list(f_id))
     return render(request, 'university/search_res.html', {'searcher_res': search_univ, 'searcher_req': search_req})
+
+
+def features(request):
+    return render(request, 'features/soon.html')
+
+
+def team(request):
+    return render(request, 'about/team.html')
